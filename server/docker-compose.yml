@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.23.3-alpine
+    volumes:
+      - $PWD/nginx-server.conf:/etc/nginx/conf.d/server.conf
+      - $PWD/certs:/certs
+      - $PWD/www:/usr/share/nginx/html
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - v2ray
+  v2ray:
+    image: fxtaoo/v2ray-core:5.3.0
+    volumes:
+      - $PWD/v2ray-config.json:/etc/v2ray/config.json
+    command: v2ray run -c /etc/v2ray/config.json
+

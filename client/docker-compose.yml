@@ -1,0 +1,10 @@
+version: '3'
+services:
+  v2ray:
+    image: fxtaoo/v2ray-core:5.3.0
+    volumes:
+      - $PWD/v2ray-config.json:/etc/v2ray/config.json
+    ports:
+      - 1080:1080
+    command: v2ray run -c /etc/v2ray/config.json
+

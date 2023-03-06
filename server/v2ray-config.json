@@ -1,0 +1,30 @@
+{
+  "inbounds": [
+    {
+      "port": 10000,
+      "listen":"0.0.0.0",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "{UUID4}",
+            "alterId": 0 
+
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+	  "path": "/ray"
+	}
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
+}
